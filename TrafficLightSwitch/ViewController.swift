@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenLightView: UIView!
     @IBOutlet weak var switchButton: UIButton!
     
-    var tapSwitchButtonCounter = 0
+    var switchButtonTapCounter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,35 +31,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func switchButtonDidTapped(_ sender: Any) {
-        print("switchButton did tapped")
-        print("счетчик нажатий на кнопку до нажатия - \(tapSwitchButtonCounter)")
-        tapSwitchButtonCounter += 1
-        print("счетчик нажатий на кнопку после нажатия - \(tapSwitchButtonCounter)")
+        
+        switchButtonTapCounter += 1
 
         switchButton.setTitle("NEXT", for: .normal)
         
-        if tapSwitchButtonCounter % 3 == 1 {
+        if switchButtonTapCounter % 3 == 1 {
             redLightView.alpha = 1
             yellowLightView.alpha = 0.3
             greenLightView.alpha = 0.3
-            
-            print("должен гореть красный")
         }
         
-        if tapSwitchButtonCounter % 3 == 2 {
+        if switchButtonTapCounter % 3 == 2 {
             redLightView.alpha = 0.3
             yellowLightView.alpha = 1
             greenLightView.alpha = 0.3
-            
-            print("должен гореть желтый")
         }
         
-        if tapSwitchButtonCounter % 3 == 0 {
+        if switchButtonTapCounter % 3 == 0 {
             redLightView.alpha = 0.3
             yellowLightView.alpha = 0.3
             greenLightView.alpha = 1
-            
-            print("должен гореть зеленый")
         }
     }
 }
