@@ -22,12 +22,14 @@ class ViewController: UIViewController {
         redLightView.alpha = 0.3
         yellowLightView.alpha = 0.3
         greenLightView.alpha = 0.3
-        
+
+        switchButton.layer.cornerRadius = 10
+    }
+    
+    override func viewWillLayoutSubviews() {
         redLightView.layer.cornerRadius = redLightView.frame.width / 2
         yellowLightView.layer.cornerRadius = yellowLightView.frame.width / 2
         greenLightView.layer.cornerRadius = greenLightView.frame.width / 2
-
-        switchButton.layer.cornerRadius = 10
     }
     
     @IBAction func switchButtonDidTapped(_ sender: Any) {
