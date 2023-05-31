@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var redLightView: UIView!
     @IBOutlet weak var yellowLightView: UIView!
     @IBOutlet weak var greenLightView: UIView!
+    
     @IBOutlet weak var switchButton: UIButton!
     
     var switchButtonTapCounter = 0
@@ -33,7 +34,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func switchButtonDidTapped(_ sender: Any) {
-        
         switchButtonTapCounter += 1
 
         switchButton.setTitle("NEXT", for: .normal)
@@ -42,15 +42,13 @@ class ViewController: UIViewController {
             redLightView.alpha = 1
             yellowLightView.alpha = 0.3
             greenLightView.alpha = 0.3
-        }
-        
-        if switchButtonTapCounter % 3 == 2 {
+            
+        } else if switchButtonTapCounter % 3 == 2 {
             redLightView.alpha = 0.3
             yellowLightView.alpha = 1
             greenLightView.alpha = 0.3
-        }
-        
-        if switchButtonTapCounter % 3 == 0 {
+            
+        } else if switchButtonTapCounter % 3 == 0 {
             redLightView.alpha = 0.3
             yellowLightView.alpha = 0.3
             greenLightView.alpha = 1
