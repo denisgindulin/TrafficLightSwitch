@@ -38,20 +38,18 @@ class ViewController: UIViewController {
     @IBAction func switchButtonDidTapped(_ sender: Any) {
         switchButtonTapCounter += 1
 
-        switchButton.setTitle("NEXT", for: .normal)
+        if switchButton.currentTitle == "START" {
+            switchButton.setTitle("NEXT", for: .normal)
+        }
         
+        // To switch the traffic light signal sequentially, i change the status of only the current signal and the previous signal because the third signal is already off.
         if switchButtonTapCounter % 3 == 1 {
             redLightView.alpha = lightIsOn
-            yellowLightView.alpha = lightIsOff
             greenLightView.alpha = lightIsOff
-            
         } else if switchButtonTapCounter % 3 == 2 {
             redLightView.alpha = lightIsOff
             yellowLightView.alpha = lightIsOn
-            greenLightView.alpha = lightIsOff
-            
         } else if switchButtonTapCounter % 3 == 0 {
-            redLightView.alpha = lightIsOff
             yellowLightView.alpha = lightIsOff
             greenLightView.alpha = lightIsOn
         }
