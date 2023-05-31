@@ -15,14 +15,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var switchButton: UIButton!
     
-    var switchButtonTapCounter = 0
+    private var switchButtonTapCounter = 0
+    private let lightIsOn: CGFloat = 1
+    private let lightIsOff: CGFloat = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redLightView.alpha = 0.3
-        yellowLightView.alpha = 0.3
-        greenLightView.alpha = 0.3
+        redLightView.alpha = lightIsOff
+        yellowLightView.alpha = lightIsOff
+        greenLightView.alpha = lightIsOff
 
         switchButton.layer.cornerRadius = 10
     }
@@ -39,19 +41,19 @@ class ViewController: UIViewController {
         switchButton.setTitle("NEXT", for: .normal)
         
         if switchButtonTapCounter % 3 == 1 {
-            redLightView.alpha = 1
-            yellowLightView.alpha = 0.3
-            greenLightView.alpha = 0.3
+            redLightView.alpha = lightIsOn
+            yellowLightView.alpha = lightIsOff
+            greenLightView.alpha = lightIsOff
             
         } else if switchButtonTapCounter % 3 == 2 {
-            redLightView.alpha = 0.3
-            yellowLightView.alpha = 1
-            greenLightView.alpha = 0.3
+            redLightView.alpha = lightIsOff
+            yellowLightView.alpha = lightIsOn
+            greenLightView.alpha = lightIsOff
             
         } else if switchButtonTapCounter % 3 == 0 {
-            redLightView.alpha = 0.3
-            yellowLightView.alpha = 0.3
-            greenLightView.alpha = 1
+            redLightView.alpha = lightIsOff
+            yellowLightView.alpha = lightIsOff
+            greenLightView.alpha = lightIsOn
         }
     }
 }
